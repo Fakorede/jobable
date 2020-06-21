@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'JobController@index');
+Route::resource('jobs', 'JobController');
 
 Auth::routes();
 
