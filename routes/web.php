@@ -15,7 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::resource('/jobs', 'JobController');
 Route::get('/company/{company}', 'CompanyController@index')->name('company.index');
-// Route::resource('company', 'CompanyController');
+Route::get('user/profile', 'UserController@index')->name('profile.index');
+Route::post('user/profile/create', 'UserController@store')->name('profile.create');
 
 Auth::routes();
 
