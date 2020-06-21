@@ -13,7 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'JobController@index');
+Route::resource('/jobs', 'JobController');
+Route::get('/company/{company}', 'CompanyController@index')->name('company.index');
+// Route::resource('company', 'CompanyController');
 
 Auth::routes();
 
