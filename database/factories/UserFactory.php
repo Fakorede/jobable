@@ -49,7 +49,7 @@ $factory->define(Job::class, function (Faker $faker) {
     return [
         'user_id' => User::all()->random()->id,
         'company_id' => Company::all()->random()->id,
-        'title' => $title = $faker->text,
+        'title' => $title = $faker->sentence(2),
         'slug' => Str::slug($title),
         'position' => $faker->jobTitle,
         'address' => $faker->address,
