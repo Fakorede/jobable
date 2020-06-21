@@ -22,14 +22,18 @@
             <div class="card">
                 <div class="card-header">Short Info</div>
                 <div class="card-body">
-                    <p>Company: {{ $job->company->cname }}</p>
+                    <p>Company: <a href="{{ route('company.index', ['company' => $job->company->slug]) }}">{{ $job->company->cname }}</a></p>
                     <p>Address: {{ $job->address }}</p>
                     <p>Employment Type: {{ $job->type }}</p>
                     <p>Position: {{ $job->position }}</p>
                     <p>Date: {{ $job->created_at->diffForHumans() }}</p>
                 </div>
             </div>
-            <button class="btn btn-success btn-sm">Apply</button>
+            <br>
+            @if (Auth::check() && Auth::user()->user_type = 'seeker')
+                <button class="btn btn-success btn" style="width:100%">Apply</button>    
+            @endif
+            
         </div>
 
         <div class="col-md-4">
