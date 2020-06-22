@@ -10,11 +10,25 @@
     @endif
 
     <div class="row">
-        <div class="col-md-2">
-            <img src="{{ asset('avatar/man.jpg') }}" width="100">
+        <div class="col-md-3">
+            @if (empty(Auth::user()->profile->avatar))
+                <img src="{{ asset('avatar/man.jpg') }}" width="100" style="width: 100%;">
+            @else
+                <img src="{{ asset('uploads/avatar') }}/{{ Auth::user()->profile->avatar }}" width="100" style="width: 100%;">
+            @endif
+            <br><br>
+
+            <form action="{{ route('profile.avatar') }}" method="post" enctype="multipart/form-data">
+                @csrf
+                <div class="card-header">Update Avatar</div>
+                <div class="card-body">
+                    <input type="file" class="form-control" name="avatar">
+                    <button class="btn btn-success float-right" type="submit">Update</button>
+                </div>
+            </form>
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-5">
             <div class="card">
                 <div class="card-header">
                     Update Your Profile
