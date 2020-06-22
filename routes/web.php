@@ -17,6 +17,8 @@ Route::resource('/jobs', 'JobController');
 Route::get('/company/{company}', 'CompanyController@index')->name('company.index');
 Route::get('user/profile', 'UserController@index')->name('profile.index');
 Route::post('user/profile/create', 'UserController@store')->name('profile.create');
+Route::post('user/coverletter', 'UserController@coverletter')->name('profile.coverletter');
+Route::post('user/resume', 'UserController@resume')->name('profile.resume');
 
 Auth::routes();
 

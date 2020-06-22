@@ -15,7 +15,7 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $user_id = auth()->user()->id;
-        
+
         Profile::where('user_id', $user_id)->update([
             'address' => $request->address,
             'experience' => $request->experience,
@@ -23,5 +23,37 @@ class UserController extends Controller
         ]);
 
         return redirect()->back()->with('message', 'Profile Successfully Updated!');
+    }
+
+    public function coverletter(Request $request)
+    {
+        $this->validate($request, [
+            'cover_letter' => 'required|mimes:pdf,doc,docx|max:20000'
+        ]);
+
+        $user_id = auth()->user()->id;
+        $cover = $request->file('cover_letter')->store('public/cv');
+
+        Profile::where('user_id', $user_id)->update([
+            'cover_letter' => $cover
+        ]);
+
+        return redirect()->back()->with('message', 'Cover Letter Successfully Updated!');
+    }
+
+    public function resume(Request $request)
+    {
+        $this->validate($request, [
+            'resume' => 'required|mimes:pdf,doc,docx|max:20000'
+        ]);
+
+        $user_id = auth()->user()->id;
+        $resume = $request->file('resume')->store('public/resume');
+
+        Profile::where('user_id', $user_id)->update([
+            'resume' => $resume
+        ]);
+
+        return redirect()->back()->with('message', 'Resume Successfully Updated!');
     }
 }
