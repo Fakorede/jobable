@@ -24,6 +24,10 @@
                 <div class="card-body">
                     <input type="file" class="form-control" name="avatar">
                     <button class="btn btn-success float-right" type="submit">Update</button>
+
+                    @if ($errors->has('avatar'))
+                        <div class="error" style="color:red;">{{ $errors->first('avatar') }}</div>
+                    @endif
                 </div>
             </form>
         </div>
@@ -41,16 +45,37 @@
                         <div class="form-group">
                             <label for="">Address</label>
                             <input type="text" class="form-control" name="address" value="{{ Auth::user()->profile->address }}">
+
+                            @if ($errors->has('address'))
+                                <div class="error" style="color:red;">{{ $errors->first('address') }}</div>
+                            @endif
+                        </div>
+
+                        <div class="form-group">
+                            <label for="">Phone Number</label>
+                            <input type="text" class="form-control" name="phone_number" value="{{ Auth::user()->profile->phone_number }}">
+
+                            @if ($errors->has('phone_number'))
+                                <div class="error" style="color:red;">{{ $errors->first('phone_number') }}</div>
+                            @endif
                         </div>
 
                         <div class="form-group">
                             <label for="">Experience</label>
                             <textarea class="form-control" name="experience">{{ Auth::user()->profile->experience }}</textarea>
+
+                            @if ($errors->has('experience'))
+                                <div class="error" style="color:red;">{{ $errors->first('experience') }}</div>
+                            @endif
                         </div>
 
                         <div class="form-group">
                             <label for="">Bio</label>
                             <textarea class="form-control" name="bio">{{ Auth::user()->profile->bio }}</textarea>
+
+                            @if ($errors->has('bio'))
+                                <div class="error" style="color:red;">{{ $errors->first('bio') }}</div>
+                            @endif
                         </div>
 
                         <div class="form-group">
@@ -68,6 +93,7 @@
                     <p><strong>Name: </strong>{{ Auth::user()->name }}</p>
                     <p><strong>Email: </strong>{{ Auth::user()->email }}</p>
                     <p><strong>Address: </strong> {{ Auth::user()->profile->address }}</p>
+                    <p><strong>Phone Number: </strong> {{ Auth::user()->profile->phone_number }}</p>
                     <p><strong>Gender: </strong>{{ Auth::user()->profile->gender }}</p>
                     <p><strong>Experience: </strong>{{ Auth::user()->profile->experience }}</p>
                     <p><strong>Bio: </strong>{{ Auth::user()->profile->bio }}</p>
@@ -98,6 +124,10 @@
                     <div class="card-body">
                         <input type="file" class="form-control" name="cover_letter">
                         <button class="btn btn-success float-right" type="submit">Update</button>
+
+                        @if ($errors->has('cover_letter'))
+                            <div class="error" style="color:red;">{{ $errors->first('cover_letter') }}</div>
+                        @endif
                     </div>
                 </form>
             </div>
@@ -109,6 +139,10 @@
                     <div class="card-body">
                         <input type="file" class="form-control" name="resume">
                         <button class="btn btn-success float-right" type="submit">Update</button>
+
+                        @if ($errors->has('resume'))
+                            <div class="error" style="color:red;">{{ $errors->first('resume') }}</div>
+                        @endif
                     </div>
                 </form>
             </div>
