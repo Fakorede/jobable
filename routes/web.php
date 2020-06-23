@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Route;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 
 Route::resource('/jobs', 'JobController');
 Route::get('/company/{company}', 'CompanyController@index')->name('company.index');
@@ -20,6 +20,9 @@ Route::post('user/profile/create', 'UserController@store')->name('profile.create
 Route::post('user/coverletter', 'UserController@coverletter')->name('profile.coverletter');
 Route::post('user/resume', 'UserController@resume')->name('profile.resume');
 Route::post('user/avatar', 'UserController@avatar')->name('profile.avatar');
+
+Route::view('employer/register', 'auth.employer-register')->name('employer');
+Route::post('employer/register', 'EmployerRegistrationController@register')->name('employer.register');
 
 Auth::routes();
 
