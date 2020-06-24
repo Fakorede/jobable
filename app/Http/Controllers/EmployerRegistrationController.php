@@ -21,7 +21,7 @@ class EmployerRegistrationController extends Controller
         Company::create([
             'user_id' => $user->id,
             'cname' => $request->cname,
-            'slug' => Str::slug($request->slug),
+            'slug' => Str::slug($request->cname),
         ]);
 
         return redirect()->route('login');
