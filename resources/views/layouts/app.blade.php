@@ -11,6 +11,14 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" defer></script>
+
+    <script>
+        $( function() {
+            $( "#datepicker" ).datepicker();
+        } );
+    </script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -18,6 +26,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/fontawesome.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" /></head>
@@ -57,6 +66,9 @@
                             @if (Auth::user()->user_type == 'employer')
                             <li class="nav-item">
                                 <a href="{{ route('jobs.create') }}"><button class="btn btn-success">{{ __('Post a Job') }}</button></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('myjobs') }}">{{ __('My Jobs') }}</a>
                             </li>
                             @endif
                             
