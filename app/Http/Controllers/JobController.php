@@ -11,6 +11,12 @@ use Illuminate\Support\Str;
 
 class JobController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('employer', ['except' => array('index', 'show')]);
+    }
+
     public function index()
     {
         $jobs = Job::all();
