@@ -5,15 +5,29 @@ namespace App\Http\Controllers;
 use App\Company;
 use App\Http\Requests\JobPostRequest;
 use App\Job;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
 class JobController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('employer', ['except' => array('index', 'show')]);
+    }
+
     public function index()
     {
         $jobs = Job::all();
         return view('welcome', compact('jobs'));
+    }
+
+    public function myjobs()
+    {
+        $user_id = auth()->user()->id;
+        $jobs = Job::where('user_id', $user_id)->get();
+        return view('jobs.myjobs', compact('jobs'));
     }
 
     public function show(Job $job)
@@ -47,13 +61,17 @@ class JobController extends Controller
             'last_date' => $request->last_date,
         ]);
 
-        return redirect()->back()->with('message', 'Job Posted Successfully!');
+        return redirect()->back()->with('message', 'Job Successfully Posted!');
     }
 
-    public function myjobs()
+    public function edit(Job $job)
     {
-        $user_id = auth()->user()->id;
-        $jobs = Job::where('user_id', $user_id)->get();
-        return view('jobs.myjobs', compact('jobs'));
+        return view("jobs.edit", compact('job'));
+    }
+
+    public function update(Request $request, Job $job)
+    {
+        $job->update($request->all());
+        return redirect()->back()->with('message', 'Job Successfully Updated!');
     }
 }

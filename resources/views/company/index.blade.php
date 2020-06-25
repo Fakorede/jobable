@@ -12,7 +12,7 @@
 
             <div class="company-desc">
                 @if (empty(Auth::user()->company->logo))
-                    <img src="{{ asset('avatar/man.jpg') }}" width="100" style="width: 100%;">
+                    <img src="{{ asset('avatar/man.jpg') }}" width="100">
                 @else
                     <img src="{{ asset('uploads/logo') }}/{{ Auth::user()->company->logo }}" width="100">
                 @endif
@@ -39,7 +39,13 @@
             <tbody>
                 @foreach ($company->jobs as $job)
                     <tr>
-                        <td><img src="{{ asset('avatar/man.jpg') }}" width="80"></td>
+                        <td>
+                            @if (empty(Auth::user()->company->logo))
+                                <img src="{{ asset('avatar/man.jpg') }}" width="100">
+                            @else
+                                <img src="{{ asset('uploads/logo') }}/{{ Auth::user()->company->logo }}" width="100">
+                            @endif
+                        </td>
                         <td>
                             {{ $job->position }}
                             <br>
