@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Job;
 use App\Company;
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\JobPostRequest;
+use App\Job;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class JobController extends Controller
 {
@@ -48,5 +48,12 @@ class JobController extends Controller
         ]);
 
         return redirect()->back()->with('message', 'Job Posted Successfully!');
+    }
+
+    public function myjobs()
+    {
+        $user_id = auth()->user()->id;
+        $jobs = Job::where('user_id', $user_id)->get();
+        return view('jobs.myjobs', compact('jobs'));
     }
 }

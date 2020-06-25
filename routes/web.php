@@ -13,8 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
- // job
+// job
 Route::resource('/jobs', 'JobController');
+Route::get('/my-jobs', 'JobController@myjobs')->name('myjobs');
 
 // company
 Route::get('company/show', 'CompanyController@show')->name('company.show');
