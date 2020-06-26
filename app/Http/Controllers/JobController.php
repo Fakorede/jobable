@@ -2,25 +2,25 @@
 
 namespace App\Http\Controllers;
 
-use App\Company;
-use App\Http\Requests\JobPostRequest;
 use App\Job;
+use App\Company;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\JobPostRequest;
 
 class JobController extends Controller
 {
 
     public function __construct()
     {
-        $this->middleware('employer', ['except' => array('index', 'show')]);
+        $this->middleware('employer', ['except' => array('index', 'show', 'apply')]);
     }
 
     public function index()
     {
         $jobs = Job::all();
-        return view('welcome', compact('jobs'));
+        return view('jobs.index', compact('jobs'));
     }
 
     public function myjobs()
@@ -73,5 +73,18 @@ class JobController extends Controller
     {
         $job->update($request->all());
         return redirect()->back()->with('message', 'Job Successfully Updated!');
+    }
+
+    public function apply(Request $request, $id)
+    {
+        $job = Job::findOrFail($id);
+        $job->users()->attach(Auth::user()->id);
+
+    //     DB::table('job_users')->create([
+    //         'user_id'=>Auth::user()->id,
+    //          'job_id'=>$id
+    //    ]);
+
+        return redirect()->back()->with('message', 'Application Successfully Submitted!');
     }
 }

@@ -2,7 +2,6 @@
 
 namespace App;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -37,7 +36,6 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-
     public function profile()
     {
         return $this->hasOne('App\Profile');
@@ -46,5 +44,10 @@ class User extends Authenticatable
     public function company()
     {
         return $this->hasOne('App\Company');
+    }
+
+    public function jobs()
+    {
+        return $this->belongsToMany('App\Job')->withTimestamps();
     }
 }

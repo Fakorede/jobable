@@ -35,6 +35,10 @@ Route::post('user/avatar', 'UserController@avatar')->name('profile.avatar');
 Route::view('employer/register', 'auth.employer-register')->name('employer');
 Route::post('employer/register', 'EmployerRegistrationController@register')->name('employer.register');
 
+// application
+Route::post('applications/{id}', 'JobController@apply')->name('apply');
+
 Auth::routes();
 
+Route::view('/', 'welcome')->name('welcome');
 Route::get('/home', 'HomeController@index')->name('home');

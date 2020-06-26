@@ -64,12 +64,16 @@
                             @endif
                         @else
                             @if (Auth::user()->user_type == 'employer')
-                            <li class="nav-item">
-                                <a href="{{ route('jobs.create') }}"><button class="btn btn-success">{{ __('Post a Job') }}</button></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('myjobs') }}">{{ __('My Jobs') }}</a>
-                            </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('jobs.create') }}"><button class="btn btn-success">{{ __('Post a Job') }}</button></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('myjobs') }}">{{ __('My Jobs') }}</a>
+                                </li>
+                            @else
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('jobs.index') }}">{{ __('Available Jobs') }}</a>
+                                </li>
                             @endif
                             
                             <li class="nav-item dropdown">
