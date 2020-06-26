@@ -33,6 +33,9 @@
                                     <td><i class="fas fa-map-marker-alt" aria-hidden="true"></i>&nbsp;{{ $job->address }}</td>
                                     <td><i class="fas fa-globe" aria-hidden="true"></i>&nbsp;{{ $job->created_at->diffForHumans() }}</td>
                                     <td>
+                                        <a href="{{ route('jobs.show', [$job->slug]) }}">
+                                            <button class="btn btn-sm btn-dark">View</button>
+                                        </a>
                                         <a href="{{ route('jobs.edit', [$job->slug]) }}">
                                             <button class="btn btn-sm btn-success">Edit</button>
                                         </a>

@@ -16,7 +16,7 @@
 
     <script>
         $( function() {
-            $( "#datepicker" ).datepicker();
+            $( "#datepicker" ).datepicker({dateFormat:"yy-mm-dd"}).val();
         } );
     </script>
 
@@ -69,6 +69,9 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('myjobs') }}">{{ __('My Jobs') }}</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('applications') }}">{{ __('Applications') }}</a>
                                 </li>
                             @else
                                 <li class="nav-item">

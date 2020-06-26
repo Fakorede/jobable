@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Job;
 use App\Company;
-use Illuminate\Http\Request;
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\JobPostRequest;
+use App\Job;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class JobController extends Controller
 {
@@ -80,11 +80,20 @@ class JobController extends Controller
         $job = Job::findOrFail($id);
         $job->users()->attach(Auth::user()->id);
 
-    //     DB::table('job_users')->create([
-    //         'user_id'=>Auth::user()->id,
-    //          'job_id'=>$id
-    //    ]);
+        //     DB::table('job_users')->create([
+        //         'user_id'=>Auth::user()->id,
+        //          'job_id'=>$id
+        //    ]);
 
         return redirect()->back()->with('message', 'Application Successfully Submitted!');
+    }
+
+    public function applications()
+    {
+        $applicants = Job::has('users')
+            ->where('user_id', auth()->user()->id)
+            ->get();
+
+        return view('jobs.applications', compact('applicants'));
     }
 }

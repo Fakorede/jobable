@@ -36,4 +36,11 @@ class Job extends Model
             ->where('user_id', auth()->user()->id)
             ->exists();
     }
+
+    public function countApplicants()
+    {
+        return DB::table('job_user')
+            ->where('job_id', $this->id)
+            ->count();
+    }
 }
