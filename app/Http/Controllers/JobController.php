@@ -14,13 +14,13 @@ class JobController extends Controller
 
     public function __construct()
     {
-        $this->middleware('employer', ['except' => array('index', 'show')]);
+        $this->middleware('employer', ['except' => array('index', 'show', 'apply')]);
     }
 
     public function index()
     {
         $jobs = Job::all();
-        return view('welcome', compact('jobs'));
+        return view('jobs.index', compact('jobs'));
     }
 
     public function myjobs()
@@ -73,5 +73,27 @@ class JobController extends Controller
     {
         $job->update($request->all());
         return redirect()->back()->with('message', 'Job Successfully Updated!');
+    }
+
+    public function apply(Request $request, $id)
+    {
+        $job = Job::findOrFail($id);
+        $job->users()->attach(Auth::user()->id);
+
+        //     DB::table('job_users')->create([
+        //         'user_id'=>Auth::user()->id,
+        //          'job_id'=>$id
+        //    ]);
+
+        return redirect()->back()->with('message', 'Application Successfully Submitted!');
+    }
+
+    public function applications()
+    {
+        $applicants = Job::has('users')
+            ->where('user_id', auth()->user()->id)
+            ->get();
+
+        return view('jobs.applications', compact('applicants'));
     }
 }

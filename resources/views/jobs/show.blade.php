@@ -4,8 +4,19 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+            @if (Session::has('message'))
+                <div class="alert alert-success">
+                    {{ Session::get('message') }}
+                </div>
+            @endif
             <div class="card">
-                <div class="card-header">{{ $job->title }}</div>
+                <div class="card-header">
+                    <h3>
+                        {{ $job->title }}
+                        <sup class="text text-success">{{ $job->countApplicants() }} applicants</sup>
+                    </h3>
+                    
+                </div>
                 <div class="card-body">
                     <p>
                         <h3>Job Description</h3>
@@ -30,8 +41,15 @@
                 </div>
             </div>
             <br>
-            @if (Auth::check() && Auth::user()->user_type = 'seeker')
-                <button class="btn btn-success btn" style="width:100%">Apply</button>    
+            @if (Auth::check() && Auth::user()->user_type == 'seeker')
+                @if (!$job->checkApplication())
+                    <form action="{{ route('apply', $job->id) }}" method="post">
+                        @csrf
+                        <button class="btn btn-success btn" type="submit" style="width:100%">Apply</button>  
+                    </form>  
+                @else
+                    <div class="alert alert-success">You already applied for this Job!</div>
+                @endif
             @endif
             
         </div>
