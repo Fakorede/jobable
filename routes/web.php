@@ -14,8 +14,9 @@ use Illuminate\Support\Facades\Route;
  */
 
 // job
-Route::resource('/jobs', 'JobController');
-Route::get('/my-jobs', 'JobController@myjobs')->name('myjobs');
+Route::get('jobs/all', 'JobController@alljobs')->name('alljobs');
+Route::resource('jobs', 'JobController');
+Route::get('my-jobs', 'JobController@myjobs')->name('myjobs');
 Route::get('my-jobs/applications', 'JobController@applications')->name('applications');
 
 // application
@@ -38,7 +39,6 @@ Route::post('user/avatar', 'UserController@avatar')->name('profile.avatar');
 // employer
 Route::view('employer/register', 'auth.employer-register')->name('employer');
 Route::post('employer/register', 'EmployerRegistrationController@register')->name('employer.register');
-
 
 Auth::routes();
 

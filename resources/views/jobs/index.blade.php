@@ -35,7 +35,9 @@
         </div>
 
         <div>
-            <div class="btn btn-success btn-lg" style="width:100%;">Browse All Jobs</div>
+            <a href="{{ route('alljobs') }}">
+                <button class="btn btn-success btn-lg" style="width:100%;">Browse All Jobs</button>
+            </a>
         </div>
         <br><br>
         <h1>Featured Companies</h1>
