@@ -19,8 +19,14 @@ class JobController extends Controller
 
     public function index()
     {
-        $jobs = Job::all();
-        return view('jobs.index', compact('jobs'));
+        $jobs = Job::latest()
+            ->limit(10)
+            ->where('status', 1)
+            ->get();
+
+        $companies = Company::get()->random(4);
+
+        return view('jobs.index', compact('jobs', 'companies'));
     }
 
     public function myjobs()

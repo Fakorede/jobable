@@ -15,7 +15,7 @@
                 <tbody>
                     @foreach ($jobs as $job)
                         <tr>
-                            <td><img src="{{ asset('avatar/man.jpg') }}" width="80"></td>
+                            <td><img src="{{ asset('uploads/logo') }}/{{ $job->company->logo }}" width="80"></td>
                             <td>
                                 {{ $job->position }}
                                 <br>
@@ -32,6 +32,33 @@
                     @endforeach
                 </tbody>
             </table>
+        </div>
+
+        <div>
+            <div class="btn btn-success btn-lg" style="width:100%;">Browse All Jobs</div>
+        </div>
+        <br><br>
+        <h1>Featured Companies</h1>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            @foreach ($companies as $company)
+                <div class="col-md-3">
+                    <div class="card" style="width: 18rem;">
+                        @if (!empty($company->logo))
+                            <img class="mx-auto" src="{{ asset('uploads/logo') }}/{{ $company->logo }}" width="100">
+                        @else
+                            <img class="mx-auto" src="{{ asset('uploads/logo/man.jpg') }}" width="100">
+                        @endif
+                        <div class="card-body text-center">
+                            <h5 class="card-title">{{ $company->cname }}</h5>
+                            <p class="card-text">{{ \Illuminate\Support\Str::limit($company->description, 50) }}</p>
+                            <a href="{{ route('company.index', $company->slug) }}" class="btn btn-outline-primary">Visit Page</a>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
         </div>
     </div>
 @endsection
