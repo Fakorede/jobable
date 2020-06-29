@@ -14,13 +14,44 @@ class JobController extends Controller
 
     public function __construct()
     {
-        $this->middleware('employer', ['except' => array('index', 'show', 'apply')]);
+        $this->middleware(['employer', 'verified'], ['except' => array('index', 'show', 'apply', 'alljobs')]);
     }
 
     public function index()
     {
-        $jobs = Job::all();
-        return view('jobs.index', compact('jobs'));
+        $jobs = Job::latest()
+            ->limit(10)
+            ->where('status', 1)
+            ->get();
+
+        $companies = Company::get()->random(4);
+
+        return view('jobs.index', compact('jobs', 'companies'));
+    }
+
+    public function alljobs(Request $request)
+    {
+
+        $position = $request->get('position');
+        $type = $request->get('type');
+        $category = $request->get('category_id');
+        $address = $request->get('address');
+
+        if ($position || $type || $category || $address) {
+            $jobs = Job::where('position', 'LIKE', '%' . $position . '%')
+                ->where('type', 'LIKE', '%' . $type . '%')
+                ->where('category_id', 'LIKE', '%' . $category . '%')
+                ->where('address', 'LIKE', '%' . $address . '%')
+                ->paginate(10);
+                
+        } else {
+            $jobs = Job::latest()
+                ->where('status', 1)
+                ->paginate(10);
+        }
+
+        return view('jobs.alljobs', compact('jobs'));
+
     }
 
     public function myjobs()

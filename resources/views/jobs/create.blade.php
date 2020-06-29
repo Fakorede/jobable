@@ -52,7 +52,7 @@
 
                         <div class="form-group">
                             <label for="category">Category:</label>
-                            <select name="category" class="form-control">
+                            <select name="category_id" class="form-control">
                                 @foreach (App\Category::all() as $c)
                                     <option value="{{ $c->id }}" {{ old("category") == $c->id ? "selected":"" }}>{{ $c->name }}</option>
                                 @endforeach
