@@ -25,7 +25,7 @@
                             <td><i class="fas fa-globe" aria-hidden="true"></i>&nbsp;{{ $job->created_at->diffForHumans() }}</td>
                             <td>
                                 <a href="{{ route('jobs.show', [$job->slug]) }}">
-                                    <button class="btn btn-success btn-sm">Apply</button>
+                                    <button class="btn btn-success btn-sm">View</button>
                                 </a>
                             </td>
                         </tr>

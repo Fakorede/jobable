@@ -77,6 +77,9 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('jobs.index') }}">{{ __('Available Jobs') }}</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('home') }}">{{ __('Saved Jobs') }}</a>
+                                </li>
                             @endif
                             
                             <li class="nav-item dropdown">
