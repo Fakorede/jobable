@@ -51,6 +51,12 @@ php artisan migrate
 php artisan db:seed
 ```
 
+### Install Packages
+
+```
+npm install && npm run dev
+```
+
 ### Run App
 
 ```
