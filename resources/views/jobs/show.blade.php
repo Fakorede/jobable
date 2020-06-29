@@ -44,12 +44,12 @@
             <br>
             @if (Auth::check() && Auth::user()->user_type == 'seeker')
                 @if (!$job->checkApplication())
-                    <form action="{{ route('apply', $job->id) }}" method="post">
+                    {{-- <form action="{{ route('apply', $job->id) }}" method="post">
                         @csrf
-                        <button class="btn btn-success btn" type="submit" style="width:100%">Apply</button>  
-                    </form>  
+                    </form>   --}}
+                    <apply-component id={{ $job->id }}></apply-component>
                 @else
-                    <div class="alert alert-success">You already applied for this Job!</div>
+                    {{-- <div class="alert alert-success">You already applied for this Job!</div> --}}
                 @endif
             @endif
             
