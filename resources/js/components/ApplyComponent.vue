@@ -8,12 +8,12 @@
         style="width:100%"
       >Apply</button>
 
-      <div
+      <a
         v-else
         class="alert alert-success"
       >
-        You already applied for this Job!
-      </div>
+        You have applied for this Job!
+      </a>
     </form>
   </div>
 </template>
@@ -32,9 +32,14 @@ export default {
   methods: {
     formSubmit(e) {
       e.preventDefault();
-      axios.post(`/applications/${this.id}`).then(res => {
+      axios.post(this.endpoint).then(res => {
         this.show = false;
       });
+    }
+  },
+  computed: {
+    endpoint() {
+      return `applications/${this.id}`;
     }
   }
 };

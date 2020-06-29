@@ -40,6 +40,10 @@ Route::post('user/avatar', 'UserController@avatar')->name('profile.avatar');
 Route::view('employer/register', 'auth.employer-register')->name('employer');
 Route::post('employer/register', 'EmployerRegistrationController@register')->name('employer.register');
 
+// favorites
+Route::post('save/{id}', 'FavoriteController@save')->name('save');
+Route::post('unsave/{id}', 'FavoriteController@unsave')->name('unsave');
+
 Auth::routes(['verify' => true]);
 
 Route::view('/', 'welcome')->name('welcome');
