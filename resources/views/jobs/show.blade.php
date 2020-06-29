@@ -47,10 +47,13 @@
                     {{-- <form action="{{ route('apply', $job->id) }}" method="post">
                         @csrf
                     </form>   --}}
-                    <apply-component id={{ $job->id }}></apply-component>
-                @else
-                    {{-- <div class="alert alert-success">You already applied for this Job!</div> --}}
+                    <apply-component :id={{ $job->id }}></apply-component>
+                {{-- @else
+                    <div class="alert alert-success">You already applied for this Job!</div> --}}
                 @endif
+                <br>
+
+                <favorite-component :id={{ $job->id }} :favorited={{ $job->checkSaved() ? 'true' : 'false' }}></favorite-component>
             @endif
             
         </div>
