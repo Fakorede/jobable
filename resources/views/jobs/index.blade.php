@@ -3,6 +3,12 @@
 @section('content')
     <div class="container">
         <div class="row">
+            <div class="col-md-12">
+                <search-component></search-component>
+            </div>
+
+            <br><br><br>
+
             <h1>Recent Jobs</h1>
             <table class="table">
                 <thead>
@@ -25,7 +31,7 @@
                             <td><i class="fas fa-globe" aria-hidden="true"></i>&nbsp;{{ $job->created_at->diffForHumans() }}</td>
                             <td>
                                 <a href="{{ route('jobs.show', [$job->slug]) }}">
-                                    <button class="btn btn-success btn-sm">Apply</button>
+                                    <button class="btn btn-success btn-sm">View</button>
                                 </a>
                             </td>
                         </tr>
