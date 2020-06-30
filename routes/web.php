@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 // job
 Route::get('jobs/all', 'JobController@alljobs')->name('alljobs');
+Route::get('jobs/search', 'JobController@search')->name('search');
 Route::resource('jobs', 'JobController');
 Route::get('my-jobs', 'JobController@myjobs')->name('myjobs');
 Route::get('my-jobs/applications', 'JobController@applications')->name('applications');

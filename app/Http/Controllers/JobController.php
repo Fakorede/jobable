@@ -14,7 +14,7 @@ class JobController extends Controller
 
     public function __construct()
     {
-        $this->middleware(['employer', 'verified'], ['except' => array('index', 'show', 'apply', 'alljobs')]);
+        $this->middleware(['employer', 'verified'], ['except' => array('index', 'show', 'apply', 'alljobs', 'search')]);
     }
 
     public function index()
@@ -52,6 +52,17 @@ class JobController extends Controller
 
         return view('jobs.alljobs', compact('jobs'));
 
+    }
+
+    public function search(Request $request)
+    {
+        $keyword = $request->get('keyword');
+        $jobs = Job::where('position', 'LIKE', '%' . $keyword . '%')
+                ->orWhere('title', 'LIKE', '%' . $keyword . '%')
+                ->limit(10)
+                ->get();
+
+        return response()->json($jobs);
     }
 
     public function myjobs()
