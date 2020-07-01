@@ -56,7 +56,13 @@
                 <tbody>
                     @foreach ($jobs as $job)
                         <tr>
-                            <td><img src="{{ asset('uploads/logo') }}/{{ $job->company->logo }}" width="80"></td>
+                            <td>
+                                @if (empty($company->logo))
+                                    <img class="mx-auto" src="{{ asset('uploads/logo/man.jpg') }}" width="80">
+                                @else
+                                    <img src="{{ asset('uploads/logo') }}/{{ $job->company->logo }}" width="80">
+                                @endif
+                            </td>
                             <td>
                                 {{ $job->position }}
                                 <br>

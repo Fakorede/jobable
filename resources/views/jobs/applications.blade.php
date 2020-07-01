@@ -4,6 +4,9 @@
 <div class="container">
     <h1>Applicants</h1>
     <div class="row justify-content-center">
+        @if ($applicants->isEmpty())
+            <h3>No applications submitted yet!</h3>
+        @endif
         <div class="col-md-12">       
           @foreach($applicants as $applicant)
 
