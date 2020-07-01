@@ -9,7 +9,9 @@
 
             <br><br><br>
 
-            <h1>Recent Jobs</h1>
+            <h1>Recent Jobs</h1><br>
+
+            @if(!$jobs->isEmpty())
             <table class="table">
                 <thead>
                     <th>logo</th>
@@ -21,7 +23,13 @@
                 <tbody>
                     @foreach ($jobs as $job)
                         <tr>
-                            <td><img src="{{ asset('uploads/logo') }}/{{ $job->company->logo }}" width="80"></td>
+                            <td>
+                                @if (empty($company->logo))
+                                <img class="mx-auto" src="{{ asset('uploads/logo/man.jpg') }}" width="80">
+                                @else
+                                <img src="{{ asset('uploads/logo') }}/{{ $job->company->logo }}" width="80">
+                                @endif
+                            </td>
                             <td>
                                 {{ $job->position }}
                                 <br>
@@ -38,12 +46,21 @@
                     @endforeach
                 </tbody>
             </table>
+            @else
+            <br>
+                <div class="container">
+                    <h3>No jobs available yet! Kindly check back again.</h3>
+                </div>
+                <br>
+            @endif
         </div>
 
         <div>
+            @if(!$companies->isEmpty())
             <a href="{{ route('alljobs') }}">
                 <button class="btn btn-success btn-lg" style="width:100%;">Browse All Jobs</button>
             </a>
+            @endif
         </div>
         <br><br>
         <h1>Featured Companies</h1>
@@ -51,6 +68,7 @@
 
     <div class="container">
         <div class="row">
+            @if(!$companies->isEmpty())
             @foreach ($companies as $company)
                 <div class="col-md-3">
                     <div class="card" style="width: 18rem;">
@@ -67,6 +85,11 @@
                     </div>
                 </div>
             @endforeach
+            @else
+                <div>
+                    <h3>No Companies listed yet!</h3>
+                </div>
+            @endif
         </div>
     </div>
 @endsection
