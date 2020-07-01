@@ -52,11 +52,17 @@
 
                         <div class="form-group">
                             <label for="category">Category:</label>
-                            <select name="category_id" class="form-control">
+                            <select name="category" class="form-control">
                                 @foreach (App\Category::all() as $c)
                                     <option value="{{ $c->id }}" {{ old("category") == $c->id ? "selected":"" }}>{{ $c->name }}</option>
                                 @endforeach
                             </select>
+
+                            @error('category')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
 
                         <div class="form-group">

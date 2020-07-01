@@ -24,7 +24,10 @@ class JobController extends Controller
             ->where('status', 1)
             ->get();
 
-        $companies = Company::get()->random(4);
+        $companies = Company::get();
+        if (!$companies->isEmpty() && $companies->count() > 4) {
+            $companies = $companies->random(4);
+        }
 
         return view('jobs.index', compact('jobs', 'companies'));
     }
@@ -43,7 +46,7 @@ class JobController extends Controller
                 ->where('category_id', 'LIKE', '%' . $category . '%')
                 ->where('address', 'LIKE', '%' . $address . '%')
                 ->paginate(10);
-                
+
         } else {
             $jobs = Job::latest()
                 ->where('status', 1)
@@ -58,9 +61,9 @@ class JobController extends Controller
     {
         $keyword = $request->get('keyword');
         $jobs = Job::where('position', 'LIKE', '%' . $keyword . '%')
-                ->orWhere('title', 'LIKE', '%' . $keyword . '%')
-                ->limit(10)
-                ->get();
+            ->orWhere('title', 'LIKE', '%' . $keyword . '%')
+            ->limit(10)
+            ->get();
 
         return response()->json($jobs);
     }

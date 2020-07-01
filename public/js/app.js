@@ -1943,14 +1943,11 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       e.preventDefault();
-      axios.post(this.endpoint).then(function (res) {
+      axios.post("/applications/".concat(this.id)).then(function (res) {
         _this.show = false;
+      })["catch"](function (err) {
+        return console.log(err);
       });
-    }
-  },
-  computed: {
-    endpoint: function endpoint() {
-      return "applications/".concat(this.id);
     }
   }
 });
@@ -37658,7 +37655,7 @@ var render = function() {
             },
             [_vm._v("Apply")]
           )
-        : _c("a", { staticClass: "alert alert-success" }, [
+        : _c("div", { staticClass: "alert alert-success" }, [
             _vm._v("\n      You have applied for this Job!\n    ")
           ])
     ])

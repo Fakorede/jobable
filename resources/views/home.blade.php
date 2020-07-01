@@ -24,7 +24,7 @@
             @endforeach
         </div>
     @else
-        
+        <h1>Welcome to your Dashboard!</h1>
     @endif
 </div>
 @endsection
