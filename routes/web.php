@@ -48,4 +48,5 @@ Route::post('unsave/{id}', 'FavoriteController@unsave')->name('unsave');
 Auth::routes(['verify' => true]);
 
 Route::view('/', 'welcome')->name('welcome');
+Route::view('demo', 'demo')->name('demo');
 Route::get('/home', 'HomeController@index')->name('home');
