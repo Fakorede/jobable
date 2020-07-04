@@ -8,7 +8,7 @@
         </div>
         <div class="row">
         <div class="col-lg-12 col-md-12 col-xs-12">
-        <a class="job-listings" href="job-details.html">
+        <a class="job-listings" href="#">
         <div class="row">
         <div class="col-lg-4 col-md-4 col-xs-12">
          <div class="job-company-logo">
@@ -39,7 +39,7 @@
         </div>
         </div>
         </a>
-        <a class="job-listings" href="job-details.html">
+        <a class="job-listings" href="#">
         <div class="row">
         <div class="col-lg-4 col-md-4 col-xs-12">
         <div class="job-company-logo">
@@ -70,7 +70,7 @@
         </div>
         </div>
         </a>
-        <a class="job-listings" href="job-details.html">
+        <a class="job-listings" href="#">
         <div class="row">
         <div class="col-lg-4 col-md-4 col-xs-12">
         <div class="job-company-logo">
@@ -101,7 +101,7 @@
         </div>
         </div>
         </a>
-        <a class="job-listings" href="job-details.html">
+        <a class="job-listings" href="#">
         <div class="row">
         <div class="col-lg-4 col-md-4 col-xs-12">
         <div class="job-company-logo">

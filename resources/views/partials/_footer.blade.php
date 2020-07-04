@@ -57,7 +57,7 @@
         <div class="row">
         <div class="col-md-12">
         <div class="site-info text-center">
-        <p>Designed and Developed by <a href="https://uideck.com" rel="nofollow">UIdeck</a></p>
+
         </div>
         </div>
         </div>
@@ -83,3 +83,10 @@
 <script src="{{ asset('template/js/form-validator.min.js') }}"></script>
 <script src="{{ asset('template/js/contact-form-script.js') }}"></script>
 <script src="{{ asset('template/js/main.js') }}"></script>
+
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" defer></script>
+<script>
+    $( function() {
+        $( "#datepicker" ).datepicker({dateFormat:"yy-mm-dd"}).val();
+    } );
+</script>

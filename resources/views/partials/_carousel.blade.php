@@ -13,8 +13,8 @@
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
         <h2 class="wow fadeInRight" data-wow-delay="0.4s">Find the career you <br> deserve</h2>
         <p class="wow fadeInRight" data-wow-delay="0.6s">Aliquam vestibulum cursus felis. In iaculis iaculis sapien ac condimentum. <br> Vestibulum congue posuere lacus, id tincidunt nisi porta sit amet.</p>
-        <a href="#" class="btn btn-lg btn-common btn-effect wow fadeInRight" data-wow-delay="0.9s">See our jobs</a>
-        <a href="#" class="btn btn-lg btn-border wow fadeInRight" data-wow-delay="1.2s">Search jobs</a>
+        <a href="/login" class="btn btn-lg btn-common btn-effect wow fadeInRight" data-wow-delay="0.9s">See our jobs</a>
+        <a href="/login" class="btn btn-lg btn-border wow fadeInRight" data-wow-delay="1.2s">Search jobs</a>
         </div>
         <div class="col-lg-6 col-md-6 col-sm-4 col-xs-12">
         <div class="img-wrapper wow fadeInUp" data-wow-delay="0.6s">
@@ -31,7 +31,7 @@
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
         <h2 class="wow fadeInUp" data-wow-delay="0.4s">10000+ Jobs waiting <br>for you!</h2>
         <p class="wow fadeInUp" data-wow-delay="0.6s">Aliquam vestibulum cursus felis. In iaculis iaculis sapien ac condimentum. <br> Vestibulum congue posuere lacus, id tincidunt nisi porta sit amet.</p>
-        <a href="#" class="btn btn-lg btn-common btn-effect wow fadeInUp" data-wow-delay="0.9s">See our jobs</a>
+        <a href="/login" class="btn btn-lg btn-common btn-effect wow fadeInUp" data-wow-delay="0.9s">See our jobs</a>
         </div>
         <div class="col-lg-6 col-md-6 col-sm-4 col-xs-12">
         <div class="img-wrapper wow fadeInUp" data-wow-delay="0.6s">
@@ -48,8 +48,8 @@
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
         <h2 class="wow fadeInRight" data-wow-delay="0.4s">Post a job and hunt <br> amazing talents</h2>
         <p class="wow fadeInRight" data-wow-delay="0.6s">Aliquam vestibulum cursus felis. In iaculis iaculis sapien ac condimentum. <br> Vestibulum congue posuere lacus, id tincidunt nisi porta sit amet.</p>
-        <a href="#" class="btn btn-lg btn-common btn-effect wow fadeInRight" data-wow-delay="0.9s">Create Account</a>
-        <a href="#" class="btn btn-lg btn-border wow fadeInRight" data-wow-delay="1.2s">Post Job</a>
+        <a href="/login" class="btn btn-lg btn-common btn-effect wow fadeInRight" data-wow-delay="0.9s">View Jobs</a>
+        <a href="/login" class="btn btn-lg btn-border wow fadeInRight" data-wow-delay="1.2s">Post Job</a>
         </div>
         <div class="col-lg-6 col-md-6 col-sm-4 col-xs-12">
         <div class="img-wrapper wow fadeInUp" data-wow-delay="0.6s">

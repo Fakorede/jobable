@@ -10,12 +10,12 @@
         
         <div class="blog-item-wrapper">
         <div class="blog-item-img">
-        <a href="single-post.html">
+        <a href="#">
         <img src="{{ asset('template/img/blog/img1.jpg') }}" alt="">
         </a>
         </div>
         <div class="blog-item-text">
-        <h3><a href="single-post.html">Tips to write an impressive resume online for beginner</a></h3>
+        <h3><a href="#">Tips to write an impressive resume online for beginner</a></h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore praesentium asperiores ad vitae.</p>
         </div>
         <a class="readmore" href="#">Read More</a>
@@ -26,12 +26,12 @@
         
         <div class="blog-item-wrapper">
         <div class="blog-item-img">
-        <a href="single-post.html">
+        <a href="#">
         <img src="{{ asset('template/img/blog/img2.jpg') }}" alt="">
         </a>
         </div>
         <div class="blog-item-text">
-        <h3><a href="single-post.html">Let's explore 5 cool new features in JobBoard theme</a></h3>
+        <h3><a href="#">Let's explore 5 cool new features in JobBoard theme</a></h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore praesentium asperiores ad vitae.</p>
         </div>
         <a class="readmore" href="#">Read More</a>
@@ -42,12 +42,12 @@
         
         <div class="blog-item-wrapper">
         <div class="blog-item-img">
-        <a href="single-post.html">
+        <a href="#">
         <img src="{{ asset('template/img/blog/img3.jpg') }}" alt="">
         </a>
         </div>
         <div class="blog-item-text">
-        <h3><a href="single-post.html">How to convince recruiters and get your dream job</a></h3>
+        <h3><a href="#">How to convince recruiters and get your dream job</a></h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore praesentium asperiores ad vitae.</p>
         </div>
         <a class="readmore" href="#">Read More</a>

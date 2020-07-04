@@ -7,7 +7,7 @@
         
         <div class="row">
             <div class="col-lg-3 col-md-6 col-xs-12 f-category">
-                <a href="browse-jobs.html">
+                <a href="#">
                     <div class="icon bg-color-1">
                         <i class="lni-home"></i>
                     </div>
@@ -16,7 +16,7 @@
                 </a>
             </div>
             <div class="col-lg-3 col-md-6 col-xs-12 f-category">
-                <a href="browse-jobs.html">
+                <a href="#">
                     <div class="icon bg-color-2">
                         <i class="lni-world"></i>
                     </div>
@@ -25,7 +25,7 @@
                 </a>
             </div>
             <div class="col-lg-3 col-md-6 col-xs-12 f-category">
-                <a href="browse-jobs.html">
+                <a href="#">
                 <div class="icon bg-color-3">
                 <i class="lni-book"></i>
                 </div>
@@ -34,7 +34,7 @@
                 </a>
             </div>
             <div class="col-lg-3 col-md-6 col-xs-12 f-category">
-                <a href="browse-jobs.html">
+                <a href="#">
                 <div class="icon bg-color-4">
                 <i class="lni-display"></i>
                 </div>
@@ -43,7 +43,7 @@
                 </a>
             </div>
             <div class="col-lg-3 col-md-6 col-xs-12 f-category">
-                <a href="browse-jobs.html">
+                <a href="#">
                 <div class="icon bg-color-5">
                 <i class="lni-brush"></i>
                 </div>
@@ -52,7 +52,7 @@
                 </a>
             </div>
             <div class="col-lg-3 col-md-6 col-xs-12 f-category">
-                <a href="browse-jobs.html">
+                <a href="#">
                 <div class="icon bg-color-6">
                 <i class="lni-heart"></i>
                 </div>
@@ -61,7 +61,7 @@
                 </a>
             </div>
             <div class="col-lg-3 col-md-6 col-xs-12 f-category">
-                <a href="browse-jobs.html">
+                <a href="#">
                 <div class="icon bg-color-7">
                 <i class="lni-funnel"></i>
                 </div>
@@ -70,7 +70,7 @@
                 </a>
             </div>
             <div class="col-lg-3 col-md-6 col-xs-12 f-category">
-                <a href="browse-jobs.html">
+                <a href="#">
                 <div class="icon bg-color-8">
                 <i class="lni-cup"></i>
                 </div>

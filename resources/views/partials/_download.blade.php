@@ -5,7 +5,7 @@
 <div class="download-wrapper">
 <div>
 <div class="download-text">
-<h4>Download Our Best Apps</h4>
+<h4>Download Our App</h4>
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit ellentesque dignissim quam et metus effici turac fringilla lorem facilisis, Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 </div>
 <div class="app-button">
