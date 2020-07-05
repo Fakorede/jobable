@@ -71,7 +71,7 @@ class JobController extends Controller
     public function myjobs()
     {
         $user_id = auth()->user()->id;
-        $jobs = Job::where('user_id', $user_id)->get();
+        $jobs = Job::latest()->where('user_id', $user_id)->paginate(5);
         return view('jobs.myjobs', compact('jobs'));
     }
 
@@ -102,6 +102,7 @@ class JobController extends Controller
             'position' => $request->position,
             'address' => $request->address,
             'type' => $request->type,
+            'salary' => $request->salary,
             'status' => $request->status,
             'last_date' => $request->last_date,
         ]);
@@ -135,10 +136,10 @@ class JobController extends Controller
 
     public function applications()
     {
-        $applicants = Job::has('users')
+        $applications = Job::has('users')
             ->where('user_id', auth()->user()->id)
             ->get();
 
-        return view('jobs.applications', compact('applicants'));
+        return view('jobs.applications', compact('applications'));
     }
 }

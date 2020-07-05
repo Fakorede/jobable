@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
@@ -12,7 +13,7 @@ class Job extends Model
      *
      * @var array
      */
-    protected $fillable = ['user_id', 'company_id', 'title', 'slug', 'description', 'roles', 'category_id', 'position', 'address', 'type', 'status', 'last_date'];
+    protected $fillable = ['user_id', 'company_id', 'title', 'slug', 'description', 'roles', 'category_id', 'position', 'address', 'type', 'salary', 'status', 'last_date'];
 
     public function getRouteKeyName()
     {
@@ -55,5 +56,48 @@ class Job extends Model
         return DB::table('job_user')
             ->where('job_id', $this->id)
             ->count();
+    }
+
+    public function getDescriptionHtmlAttribute()
+    {
+        return clean($this->descriptionHtml());
+    }
+
+    public function getRolesHtmlAttribute()
+    {
+        return clean($this->rolesHtml());
+    }
+
+    public function setSlugAttribute($value) {
+        if (static::whereSlug($slug = Str::slug($value))->exists()) {
+            $slug = $this->incrementSlug($slug);
+        }
+    
+        $this->attributes['slug'] = $slug;
+    }
+
+
+
+    private function descriptionHtml()
+    {
+        return \Parsedown::instance()->text($this->description);
+    }
+
+    private function rolesHtml()
+    {
+        return \Parsedown::instance()->text($this->roles);
+    }
+
+    private function incrementSlug($slug) {
+
+        $original = $slug;
+        $count = 2;
+    
+        while (static::whereSlug($slug)->exists()) {
+            $slug = "{$original}-" . $count++;
+        }
+    
+        return $slug;
+    
     }
 }

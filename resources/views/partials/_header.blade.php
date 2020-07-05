@@ -15,3 +15,5 @@
 <link rel="stylesheet" href="{{ asset('template/css/responsive.css') }}">
 
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.4/summernote.css" rel="stylesheet">
