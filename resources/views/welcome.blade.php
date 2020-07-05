@@ -14,11 +14,6 @@
 <!-- categories -->
 @include('partials._category')
 
-
-<!-- companies -->
-@include('partials._companies')
-
-
 <!-- Browse Jobs -->
 @include('partials._browse')
 

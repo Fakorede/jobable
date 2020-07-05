@@ -90,3 +90,18 @@
         $( "#datepicker" ).datepicker({dateFormat:"yy-mm-dd"}).val();
     } );
 </script>
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.4/summernote.js"></script>
+<script type="text/javascript">
+      $(document).ready(function() {
+           $('.summernote').summernote({
+            height: 200,
+            dialogsInBody: true,
+            callbacks:{
+                onInit:function(){
+                $('body > .note-popover').hide();
+                }
+             },
+         });
+      });
+</script>

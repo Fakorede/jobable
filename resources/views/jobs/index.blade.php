@@ -15,7 +15,9 @@
             <table class="table">
                 <thead>
                     <th>logo</th>
+                    <th>title</th>
                     <th>position</th>
+                    <th>type</th>
                     <th>location</th>
                     <th>date</th>
                     <th></th>
@@ -31,8 +33,12 @@
                                 @endif
                             </td>
                             <td>
+                                {{ $job->title }}
+                            </td>
+                            <td>
                                 {{ $job->position }}
-                                <br>
+                            </td>
+                            <td>
                                 <i class="fas fa-clock" aria-hidden="true"></i>&nbsp;{{ $job->type }}
                             </td>
                             <td><i class="fas fa-map-marker-alt" aria-hidden="true"></i>&nbsp;{{ $job->address }}</td>
